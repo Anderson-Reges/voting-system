@@ -23,10 +23,6 @@ public class PessoaCandidata extends Pessoa {
     return votos;
   }
 
-  public void setVotos(int votos) {
-    this.votos = votos;
-  }
-
   @Override
   public String getNome() {
     return nome;
