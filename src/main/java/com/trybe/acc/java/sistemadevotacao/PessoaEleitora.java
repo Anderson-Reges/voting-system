@@ -1,6 +1,6 @@
 package com.trybe.acc.java.sistemadevotacao;
 
-public class PessoaEleitora extends Pessoa{
+public class PessoaEleitora extends Pessoa {
 
   private String cpf;
 
