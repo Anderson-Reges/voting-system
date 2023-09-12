@@ -10,7 +10,7 @@ public class GerenciamentoVotacaoTest {
   @Test
   @DisplayName("10 - Testando cadastro de pessoa candidata e eleitora e testando o método votar")
   public void testarCadastrarPessoaCandidataPessoaEleitoraMetodoVotar() {
-    GerenciamentoVotacao objetoTeste = new GerenciamentoVotacao(pessoasCandidatas);
+    GerenciamentoVotacao objetoTeste = new GerenciamentoVotacao();
 
     // testando cadastro de pessoa candidata e eleitora
     objetoTeste.cadastrarPessoaCandidata("Pessoa Candidata", 1);
@@ -35,7 +35,7 @@ public class GerenciamentoVotacaoTest {
   @Test
   @DisplayName("11 - Testando cadastro de número pessoa candidata repetido")
   public void testarCadastrarPessoaCandidataDuasVezes() {
-    GerenciamentoVotacao objetoTeste = new GerenciamentoVotacao(pessoasCandidatas);
+    GerenciamentoVotacao objetoTeste = new GerenciamentoVotacao();
     objetoTeste.cadastrarPessoaCandidata("Pessoa Candidata 1", 1);
 
     ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -56,7 +56,7 @@ public class GerenciamentoVotacaoTest {
   @Test
   @DisplayName("12 - Testando cadastro de pessoa eleitora repetido")
   public void testarCadastrarPessoaEleitoraDuasVezes() {
-    GerenciamentoVotacao objetoTeste = new GerenciamentoVotacao(pessoasCandidatas);
+    GerenciamentoVotacao objetoTeste = new GerenciamentoVotacao();
     objetoTeste.cadastrarPessoaEleitora("Pessoa eleitora 1", String.valueOf(1));
 
     ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -75,7 +75,7 @@ public class GerenciamentoVotacaoTest {
   @Test
   @DisplayName("13 - Testando voto de pessoa eleitora pela segunda vez")
   public void testarVotarPessoaEleitoraDuasVezes() {
-    GerenciamentoVotacao objetoTeste = new GerenciamentoVotacao(pessoasCandidatas);
+    GerenciamentoVotacao objetoTeste = new GerenciamentoVotacao();
 
     objetoTeste.cadastrarPessoaCandidata("Pessoa Candidata", 1);
     objetoTeste.cadastrarPessoaEleitora("Pessoa Eleitora", String.valueOf(1));
@@ -99,7 +99,7 @@ public class GerenciamentoVotacaoTest {
   @Test
   @DisplayName("14 - Testando método mostarResultado e calcularPorcentagemVotos")
   public void testarMostrarResultado() {
-    GerenciamentoVotacao objetoTeste = new GerenciamentoVotacao(pessoasCandidatas);
+    GerenciamentoVotacao objetoTeste = new GerenciamentoVotacao();
 
     // testando cadastro de pessoa candidata e eleitora
     objetoTeste.cadastrarPessoaCandidata("Pessoa Candidata 1", 1);

@@ -1,8 +1,7 @@
 package com.trybe.acc.java.sistemadevotacao;
 
-import java.awt.*;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class GerenciamentoVotacao {
 
@@ -18,17 +17,31 @@ public class GerenciamentoVotacao {
   }
 
   public void cadastrarPessoaCandidata(String nome, int numero) {
+    for (PessoaCandidata pc : getPessoasCandidatas()) {
+      if (pc.getNumero() == numero) {
+        System.out.println("Número pessoa candidata já utilizado!");
+        break;
+      }
+    }
+
     PessoaCandidata pc = new PessoaCandidata(nome, numero);
-    this.pessoasCandidatas.add(pc);
+    getPessoasCandidatas().add(pc);
   }
 
   public void cadastrarPessoaEleitora(String nome, String cpf) {
+    for (PessoaEleitora pl : getPessoasEleitoras()) {
+      if (Objects.equals(pl.getCpf(), cpf)) {
+        System.out.println("Pessoa eleitora já cadastrada!");
+        break;
+      }
+    }
+
     PessoaEleitora pl = new PessoaEleitora(nome, cpf);
-    this.pessoasEleitoras.add(pl);
+    getPessoasEleitoras().add(pl);
   }
 
   public void votar(String cpfPessoaEleitora, int numeroPessoaCandidata) {
-    if (this.cpfComputado.contains(cpfPessoaEleitora)) {
+    if (getCpfComputado().contains(cpfPessoaEleitora)) {
       System.out.println("Pessoa eleitora já votou!");
     }
 
