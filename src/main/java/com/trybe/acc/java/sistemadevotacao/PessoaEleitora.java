@@ -1,5 +1,8 @@
 package com.trybe.acc.java.sistemadevotacao;
 
+/**
+ * Classe responsavel por representar uma pessoa eleitora.
+ */
 public class PessoaEleitora extends Pessoa {
 
   private String cpf;

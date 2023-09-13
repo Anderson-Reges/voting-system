@@ -3,6 +3,9 @@ package com.trybe.acc.java.sistemadevotacao;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * Classe responsavel por gerir os dados da votação.
+ */
 public class GerenciamentoVotacao {
 
   private final ArrayList<PessoaCandidata> pessoasCandidatas;
@@ -16,6 +19,9 @@ public class GerenciamentoVotacao {
     this.cpfComputado = new ArrayList<>();
   }
 
+  /**
+   * Metodo responsavel por criar o cadastro da pessoa candidata.
+   */
   public void cadastrarPessoaCandidata(String nome, int numero) {
     for (PessoaCandidata pc : getPessoasCandidatas()) {
       if (pc.getNumero() == numero) {
@@ -28,6 +34,9 @@ public class GerenciamentoVotacao {
     getPessoasCandidatas().add(pc);
   }
 
+  /**
+   * Metodo responsavel por criar o cadastro da pessoa eleitora.
+   */
   public void cadastrarPessoaEleitora(String nome, String cpf) {
     for (PessoaEleitora pl : getPessoasEleitoras()) {
       if (Objects.equals(pl.getCpf(), cpf)) {
@@ -40,6 +49,9 @@ public class GerenciamentoVotacao {
     getPessoasEleitoras().add(pl);
   }
 
+  /**
+   * Metodo responsavel por criar o voto no candidato.
+   */
   public void votar(String cpfPessoaEleitora, int numeroPessoaCandidata) {
     if (getCpfComputado().contains(cpfPessoaEleitora)) {
       System.out.println("Pessoa eleitora já votou!");
@@ -48,14 +60,18 @@ public class GerenciamentoVotacao {
     for (PessoaCandidata pc : getPessoasCandidatas()) {
       if (pc.getNumero() == numeroPessoaCandidata) {
         pc.receberVoto();
-        this.setTotalVotos();
+        setTotalVotos();
         break;
       }
     }
 
-    this.cpfComputado.add(cpfPessoaEleitora);
+    getCpfComputado().add(cpfPessoaEleitora);
   }
 
+  /**
+   * Metodo responsavel por imprimir o resultado da votação mostrando
+   * a quantidade de voto e a porcentagem baseado no total de votos.
+   */
   public void mostrarResultado() {
     if (getCpfComputado().isEmpty()) {
       System.out.println("É preciso ter pelo menos um voto para mostrar o resultado.");
@@ -79,7 +95,7 @@ public class GerenciamentoVotacao {
   private double calcularPorcentagemVotos(int index) {
     PessoaCandidata pc = getPessoasCandidatas().get(index);
     double pcVotos = pc.getVotos();
-    return Math.round(pcVotos / getTotalVotos());
+    return Math.round((pcVotos * 100) / getTotalVotos());
   }
 
   public ArrayList<PessoaCandidata> getPessoasCandidatas() {

@@ -1,5 +1,8 @@
 package com.trybe.acc.java.sistemadevotacao;
 
+/**
+ * Classe responsavel por representar uma pessoa candidata.
+ */
 public class PessoaCandidata extends Pessoa {
 
   private int numero;
